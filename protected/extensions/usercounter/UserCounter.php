@@ -98,8 +98,9 @@ class UserCounter extends CComponent
 			$data[$row['save_name']] = $row['save_value'];
 		}
 
-		// Aktuellen Tag als julianisches Datum
-		$today_jd = GregorianToJD(date('m'), date('j'), date('Y'));
+		// commented out so we don't have extension issues - Calendar is an optional extension
+		//$today_jd = GregorianToJD(date('m'), date('j'), date('Y'));
+        $today_jd = (int) (2456054 + floor((time() - 1336343816)/86400));
 
 		// Prüfen ob wir schon einen neuen Tag haben
 		if ($today_jd != $data['day_time'])
@@ -120,7 +121,7 @@ class UserCounter extends CComponent
 			$command->execute();
 
 			// Auf neuen Besucherrekord prüfen
-			if ($today_count >= $data['max_count'])
+			if (isset($data['max_count']) && $today_count >= $data['max_count'])
 			{
 				// Daten aktualisieren
 				$data['max_time']  = mktime(12, 0, 0, date('n'), date('j'), date('Y')) - 86400;
@@ -197,7 +198,7 @@ class UserCounter extends CComponent
 		{
 			// Alten Rekord zurückgeben
 			$output['max_count'] = $data['max_count'];
-			$output['max_time']  = $data['max_time'];
+			$output['max_time']  = isset($data['max_time']) ? $data['max_time'] : time();
 		}
 
 		$this->user_total		= $output['counter'];
