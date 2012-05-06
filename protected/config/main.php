@@ -42,8 +42,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=yii_blog_enhanced',
 			'emulatePrepare' => true,
-			'username' => 'yii_blog',
-			'password' => 'yii',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),
