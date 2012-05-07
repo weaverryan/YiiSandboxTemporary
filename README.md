@@ -1,29 +1,31 @@
-This project is based on the Yii Blog Demo project, using Yii Framework v1.1.10
+This repository is a temporary fork of https://github.com/WebDevPT/Yii-Blog-Enhanced,
+which was simplified. The purpose is to have a dummy project to demonstrate
+some things using Yii.
 
-The objective of this project is to enhance the initial demo version with new features. Follow this project and you are welcome to contribute in any way. Join the forum discussion on Yii website.
+### Installation
 
+For ease, everything you need is included. But, there are a few things to do:
 
-Forum discussion
+1) Create a few writable directories
 
-[English](http://www.yiiframework.com/forum/index.php/topic/30503-yii-blog-enhanced-on-github)
-[Portuguese](http://www.yiiframework.com/forum/index.php/topic/30502-yii-blog-melhorado-no-github)
+```sh
 
-New Features List:
+mkdir protected/runtime
+chmod 777 protected/runtime
 
-    -Wysiwyg Editor using extension xheditor-widget
-    -Search Bar using modified extension esearch
-    -Added Blog Statistics using extension usercounter
-    -Added social bookmarks to posts using extension wsocialbutton
-    -Added sponsor banners using modified extension mflip
+mkdir assets
+chmod 777 assets
+```
 
-Upcoming Features List:
+2) Create your database
 
-    -Custom made theme
-    -User registration
-    -Banner Management
-    -Multi-language support
-    more soon
+First, create a database called `yii_blog_enhanced`. Next, import the
+`protected/data/schema.mysql.sql` into it. One way to do that is:
 
-Demo
-   
-    soon
+```sh
+mysql -u root yii_blog_enhanced < protected/data/schema.mysql.sql
+```
+
+Finally, if your `root` MySQL user has no password, you're done. But if
+your root user *does* have a password, modify `protected/config/main.php`
+and update the username and password.
