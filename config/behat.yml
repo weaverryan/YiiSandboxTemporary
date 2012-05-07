@@ -1,0 +1,5 @@
+default:
+  context:
+    parameters:
+      base_url: http://training/
+      base_api_url: http://training/
