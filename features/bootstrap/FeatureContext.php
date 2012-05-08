@@ -183,4 +183,32 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
 		// );
 	}
 
+	/**
+	 * @Given /^I fill in "([^"]*)" with$/
+	 */
+	public function iFillInWith($field, PyStringNode $string) {
+		return new When('I fill in "'.$field.'" with "'.(string)$string.'"');
+	}
+
+	/**
+	 * @Given /^there is a post titled "([^"]*)"$/
+	 */
+	public function thereIsAPostTitled($title) {
+		$post = new Post;
+		$post['title'] = $title;
+		$post['content'] = 'Fake content';
+		$post['status'] = Post::STATUS_DRAFT;
+		$post['author_id'] = $this->currentUser['id'];
+		if (!$post->save()) throw new \Exception('Problem saving the post!');
+	}
+
+	/**
+	 * @When /^I follow the "([^"]*)" link for post "([^"]*)"$/
+	 */
+	public function iFollowTheLinkForPost($link, $title) {
+		throw new PendingException;
+	}
+
+
+
 }
