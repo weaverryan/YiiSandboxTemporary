@@ -1,6 +1,6 @@
 default:
   context:
     parameters:
-      base_url: http://localhost/
+      base_url: http://localhost/index.php
 imports:
   - 'config/behat_local.yml'

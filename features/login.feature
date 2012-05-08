@@ -12,3 +12,8 @@ Feature: Login Feature
     And I fill in "Password" with "demo"
     And press "Login"
     Then I should be authenticated
+
+  Scenario: Logout
+    Given I am authenticated
+    When I click logout link
+    Then I should not be authenticated

@@ -37,7 +37,7 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
 {
 
     static protected  $yiiApp;
-
+    public $currentUser;
 
     /**
      * @Then /^I should be authenticated$/
@@ -126,6 +126,42 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
 
         // create the application and return it
         return Yii::createWebApplication($config);
+    }
+
+    /**
+     * @When /^I click logout link$/
+     */
+    public function iClickLogoutLink()
+    {
+        return new \Behat\Behat\Context\Step\When('I follow "Logout"');
+    }
+
+    /**
+     * @Then /^I should not be authenticated$/
+     */
+    public function iShouldNotBeAuthenticated()
+    {
+        return array(
+            new \Behat\Behat\Context\Step\Then('I should not see "Logout"'),
+            new \Behat\Behat\Context\Step\Then('I should see "Login"'),
+        );
+    }
+
+    /**
+     * @Given /^I am authenticated$/
+     */
+    public function iAmAuthenticated()
+    {
+        if (!$this->currentUser) {
+            $this->currentUser = $this->thereIsAnAdminAccount();
+        }
+
+        return array(
+            new \Behat\Behat\Context\Step\Given('I am on "/site/login"'),
+            new \Behat\Behat\Context\Step\When('I fill in "Username" with "demo"'),
+            new \Behat\Behat\Context\Step\When('I fill in "Password" with "demo"'),
+            new \Behat\Behat\Context\Step\When('I press "Login"'),
+        );
     }
 
 }
