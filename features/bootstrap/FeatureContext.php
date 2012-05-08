@@ -1,10 +1,16 @@
 <?php
 
+/*
+ * Temporarily forcing the use of the PHAR for ease
+ */
+/*
 if(file_exists(stream_resolve_include_path('mink/autoload.php'))){
     require_once 'mink/autoload.php';
 } elseif(file_exists(__DIR__.'/../../behat/mink.phar')){
-    require_once __DIR__.'/../../behat/mink.phar';
+    require_once __DIR__.'/../../mink.phar';
 } else throw new Exception('There is no mink distro available on your system');
+*/
+require_once __DIR__.'/../../mink.phar';
 
 //require_once('vendor/common-contexts/Behat/CommonContexts/WebApiContext.php');
 use Behat\Behat\Context\ClosuredContextInterface,
