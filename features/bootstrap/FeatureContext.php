@@ -12,7 +12,6 @@ if(file_exists(stream_resolve_include_path('mink/autoload.php'))){
 */
 require_once __DIR__.'/../../mink.phar';
 
-//require_once('vendor/common-contexts/Behat/CommonContexts/WebApiContext.php');
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
@@ -55,8 +54,6 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
      */
     public function __construct(array $parameters)
     {
-
-//      $this->useContext('api', new \Behat\CommonContexts\WebApiContext($parameters['base_api_url']));
     }
 
     /**
