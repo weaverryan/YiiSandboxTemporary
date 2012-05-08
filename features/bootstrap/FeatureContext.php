@@ -21,7 +21,9 @@ use Behat\Gherkin\Node\PyStringNode,
 
 use Behat\Mink\Behat\Context\MinkContext;
 
-
+use Behat\Behat\Context\Step\When,
+	Behat\Behat\Context\Step\Given,
+	Behat\Behat\Context\Step\Then;
 
 //
 // Require 3rd-party libraries here:
@@ -163,5 +165,14 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
             new \Behat\Behat\Context\Step\When('I press "Login"'),
         );
     }
+
+	/**
+	 * @Then /^I should be on the "([^"]*)" blog post page$/
+	 */
+	public function iShouldBeOnTheBlogPostPage($title) {
+		return array(
+            new Then('I should see "'.$title.'" in the "title" element'),
+        );
+	}
 
 }
