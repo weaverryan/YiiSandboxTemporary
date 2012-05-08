@@ -170,9 +170,17 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
 	 * @Then /^I should be on the "([^"]*)" blog post page$/
 	 */
 	public function iShouldBeOnTheBlogPostPage($title) {
-		return array(
-            new Then('I should see "'.$title.'" in the "title" element'),
-        );
+		$page = $this->getSession()->getPage();
+		$element = $page->find('css', $css='#content .title');
+		// if (!$element) throw new Behat\Mink\Exception\ElementNotFoundException($this->getSession(), 'element', 'css', $css);
+		assertNotNull($element, "Title element not found");
+		// if (strpos($element->getText(), $title) === false) throw new Exception("Title $title not found");
+		assertRegExp('/'.preg_quote($title).'/', $element->getText(), "Title $title not found");
+
+		// Meta-step:
+		// return array(
+		// 	new Then('I should see "'.$title.'" in the "title" element'),
+		// );
 	}
 
 }
