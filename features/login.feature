@@ -6,7 +6,7 @@ Feature: Login Feature
 
   Scenario:
     Given I am on "/"
-    And There is and admin account
+    And There is an admin account
     When I follow "Login"
     And I fill in "Username" with "demo"
     And I fill in "Password" with "demo"

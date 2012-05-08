@@ -79,9 +79,9 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
     }
 
     /**
-     * @Given /^There is and admin account$/
+     * @Given /^There is an admin account$/
      */
-    public function thereIsAndAdminAccount()
+    public function thereIsAnAdminAccount()
     {
 
         // create our demo admin user
