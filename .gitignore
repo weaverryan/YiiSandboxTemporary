@@ -3,3 +3,5 @@
 /assets/*
 /protected/runtime/*
 .idea
+# behat
+/config/behat_local.yml
