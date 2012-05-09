@@ -1,7 +1,7 @@
 Feature: Blog Administration
 	In order to create and manage posts
 	As a blog administrator
-	I need to be able to
+	I need to be able to create and edit posts
 
 	Background:
     	Given I am authenticated
