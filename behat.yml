@@ -12,3 +12,8 @@ default:
     behat/yii_extension.phar:
       framework_script: framework/yii.php
       config_script:    protected/config/test.php
+
+  #  you can still manually pass
+  context:
+    parameters:
+      foo: bar
