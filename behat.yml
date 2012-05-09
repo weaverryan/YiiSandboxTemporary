@@ -2,6 +2,11 @@ default:
   extensions:
 # If the class is already available via PEAR, for example, just use it
 #    Behat\MinkExtension\Extension:
+
+    # This is from its own repository
+    # URL:  https://github.com/Behat/MinkExtension
+    # Some details on the config options available:
+    #       https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Configuration.php
     behat/mink_extension.phar:
       mink_loader:         behat/mink.phar
       base_url:            'http://localhost/knp/sandbox/YiiSandboxTemporary/index-test.php'
@@ -9,11 +14,17 @@ default:
       goutte:              ~
       selenium2:           ~
 
+    # This is from its own repository
+    # URL: https://github.com/Behat/YiiExtension
+    # Some details on the config options available:
+    #       https://github.com/Behat/YiiExtension/blob/master/src/Behat/YiiExtension/Extension.php#L39
     behat/yii_extension.phar:
       framework_script: framework/yii.php
       config_script:    protected/config/test.php
 
-  #  you can still manually pass
+  # you can still manually pass parameters
+  # And if you're curious about the class the defines all possible options here:
+  #     https://github.com/Behat/Behat/blob/master/src/Behat/Behat/DependencyInjection/Configuration/Configuration.php
   context:
     parameters:
       foo: bar

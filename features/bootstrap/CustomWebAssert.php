@@ -4,6 +4,10 @@ use Behat\Mink\WebAssert;
 
 use Behat\Mink\Exception\ExpectationException;
 
+/**
+ * See the base class at:
+ *  https://github.com/Behat/Mink/blob/develop/src/Behat/Mink/WebAssert.php
+ */
 class CustomWebAssert extends WebAssert
 {
     /**

@@ -10,15 +10,12 @@ use Behat\Gherkin\Node\PyStringNode,
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\YiiExtension\Context\YiiAwareContextInterface;
 
-//
-// Require 3rd-party libraries here:
-//
-//   require_once 'PHPUnit/Autoload.php';
-//   require_once 'PHPUnit/Framework/Assert/Functions.php';
-//
-
 /**
  * Features context.
+ *
+ * YiiAwareContextInterface:
+ *  https://github.com/Behat/YiiExtension/blob/master/src/Behat/YiiExtension/Context/YiiAwareContextInterface.php
+ *
  */
 class FeatureContext extends MinkContext implements YiiAwareContextInterface
 {
