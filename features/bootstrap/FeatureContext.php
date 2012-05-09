@@ -43,6 +43,36 @@ class FeatureContext extends MinkContext implements YiiAwareContextInterface
         User::model()->deleteAll();
     }
 
+    /**
+     * @Given /^I switch to the namespaces frame$/
+     */
+    public function iSwitchToTheNamespacesFrame()
+    {
+        // switch to the main frame first
+        $this->getSession()->switchToIframe();
+        $this->getSession()->switchToIFrame('packagelist');
+    }
+
+    /**
+     * @Given /^I switch to the navigation frame$/
+     */
+    public function switchToTheNavigationFrame()
+    {
+        // switch to the main frame first
+        $this->getSession()->switchToIframe();
+        $this->getSession()->switchToIFrame('index');
+    }
+
+    /**
+     * @Given /^I switch to the main frame$/
+     */
+    public function switchToTheMainFrame()
+    {
+        // switch to the main frame first
+        $this->getSession()->switchToIframe();
+        $this->getSession()->switchToIFrame('main');
+    }
+
     public function setYiiWebApplication(\CWebApplication $yii)
     {
         $this->yii = $yii;
