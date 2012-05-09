@@ -8,6 +8,7 @@ use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 
 use Behat\MinkExtension\Context\MinkContext;
+use Behat\YiiExtension\Context\YiiAwareContextInterface;
 
 //
 // Require 3rd-party libraries here:
@@ -19,8 +20,10 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * Features context.
  */
-class FeatureContext extends MinkContext
+class FeatureContext extends MinkContext implements YiiAwareContextInterface
 {
+    private $yii;
+
     /**
      * Initializes context.
      * Every scenario gets it's own context object.
@@ -31,4 +34,18 @@ class FeatureContext extends MinkContext
     {
         // Initialize your context here
     }
+
+    /**
+     * @BeforeScenario
+     */
+    public function clearData()
+    {
+        User::model()->deleteAll();
+    }
+
+    public function setYiiWebApplication(\CWebApplication $yii)
+    {
+        $this->yii = $yii;
+    }
+
 }

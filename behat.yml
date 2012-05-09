@@ -4,7 +4,11 @@ default:
 #    Behat\MinkExtension\Extension:
     behat/mink_extension.phar:
       mink_loader:         behat/mink.phar
-      base_url:            'http://en.wikipedia.org/'
+      base_url:            'http://localhost/knp/sandbox/YiiSandboxTemporary/index-test.php'
       javascript_session:  'selenium2'
       goutte:              ~
       selenium2:           ~
+
+    behat/yii_extension.phar:
+      framework_script: framework/yii.php
+      config_script:    protected/config/test.php
