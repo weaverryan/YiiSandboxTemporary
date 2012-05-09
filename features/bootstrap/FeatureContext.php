@@ -78,4 +78,11 @@ class FeatureContext extends MinkContext implements YiiAwareContextInterface
         $this->yii = $yii;
     }
 
+    /**
+     * This allows us to override the assertion engine with our own
+     */
+    public function assertSession($name = null)
+    {
+        return new CustomWebAssert($this->getSession($name));
+    }
 }
