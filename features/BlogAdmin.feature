@@ -27,3 +27,7 @@ Feature: Blog Administration
 			And I am on "/"
 			And I follow "Manage Posts"
 		When I follow the "Update" link for post "Post to Edit"
+			And I fill in "Title" with "Edited Post"
+			And I press "Save"
+		Then I should be on the "Edited Post" blog post page
+		

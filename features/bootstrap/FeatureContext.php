@@ -206,9 +206,12 @@ class FeatureContext extends \Behat\Mink\Behat\Context\MinkContext
 	 * @When /^I follow the "([^"]*)" link for post "([^"]*)"$/
 	 */
 	public function iFollowTheLinkForPost($link, $title) {
-		throw new PendingException;
+		$page = $this->getSession()->getPage();
+		$row = $page->find('css', 'tr:contains("'.$title.'")');
+		assertNotNull($row, "Row containing $title not found");
+		$element = $row->findLink($link);
+		assertNotNull($element, "$link link not found");
+		$element->click();
 	}
-
-
 
 }
