@@ -7,11 +7,12 @@ to test against.
 For ease, everything you need is included. But, there are a few things to do:
 
 1) Clone the project onto your computer - somewhere under your web server's
-    document root:
+    document root (where `~/Sites` is your document root):
 
 ```bash
 
-git clone git://github.com/weaverryan/YiiSandboxTemporary.git ~/Sites/sandbox
+cd ~/Sites
+git clone git://github.com/weaverryan/YiiSandboxTemporary.git sandbox
 ```
 
 2) Move into the new directory and create a few writable directories
