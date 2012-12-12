@@ -1,12 +1,20 @@
 This repository is a temporary fork of https://github.com/WebDevPT/Yii-Blog-Enhanced,
-which was simplified. The purpose is to have a dummy project to demonstrate
-some things using Yii.
+which was simplified. The purpose is to have a dummy project that's easy
+to test against.
 
 ### Installation
 
 For ease, everything you need is included. But, there are a few things to do:
 
-1) Create a few writable directories
+1) Clone the project onto your computer - somewhere under your web server's
+    document root:
+
+```bash
+
+git clone git://github.com/weaverryan/YiiSandboxTemporary.git ~/Sites/sandbox
+```
+
+2) Move into the new directory and create a few writable directories
 
 ```sh
 
@@ -17,7 +25,7 @@ mkdir assets
 chmod 777 assets
 ```
 
-2) Create your database
+3) Create your database
 
 First, create a database called `yii_blog_enhanced`. Next, import the
 `protected/data/schema.mysql.sql` into it. One way to do that is:
